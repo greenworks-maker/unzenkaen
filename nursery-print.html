@@ -1,0 +1,548 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>苗の販売 — 雲仙花苑</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;500;600;700&family=Noto+Sans+JP:wght@300;400;500;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#f5f0e3; --ivory-2:#ece5d2; --parchment:#e9dfc7;
+  --forest:#1a3a1f; --forest-deep:#0c1e0e; --forest-mid:#2d5230; --forest-deepest:#0a1a0c;
+  --gold:#c9a84c; --gold-bright:#e0bc5a; --gold-dark:#8c7530;
+  --ink:#1a1a15; --ink-soft:#3a3a32;
+  --rule:rgba(12,30,14,.18); --rule-dark:rgba(201,168,76,.28);
+  --shadow-lift:0 30px 60px -25px rgba(12,30,14,.4);
+  --serif:"Noto Serif JP","Hiragino Mincho ProN","YuMincho",serif;
+  --sans:"Noto Sans JP","Hiragino Kaku Gothic ProN",sans-serif;
+  --italic:"Cormorant Garamond",serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:15px;line-height:1.85;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+body{position:relative;overflow-x:hidden}
+body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:200;mix-blend-mode:overlay;opacity:.06;background-image:radial-gradient(rgba(0,0,0,.6) 1px, transparent 1px);background-size:3px 3px}
+.wrap{max-width:1240px;margin:0 auto;padding:0 40px}
+.section-pad{padding:140px 0}
+.section-pad.tight{padding:100px 0}
+.on-dark{background:var(--forest-deep);color:var(--paper)}
+.on-dark .section-title,.on-dark .lead{color:var(--paper)}
+.on-dark .eyebrow{color:var(--gold-bright)}
+
+/* ===== HEADER ===== */
+.site-header{
+  position:fixed;top:0;left:0;right:0;z-index:50;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:20px 40px;transition:all .4s ease;
+  background:linear-gradient(180deg,rgba(12,30,14,.6),transparent);
+}
+.site-header.is-scrolled{background:rgba(245,240,227,.96);backdrop-filter:blur(12px);box-shadow:0 1px 0 rgba(12,30,14,.06)}
+.site-header.is-scrolled .brand .wordmark, .site-header.is-scrolled nav.primary a{color:var(--forest-deep)}
+.brand{display:flex;align-items:center;gap:14px}
+.brand img{width:42px;height:42px;object-fit:contain}
+.wordmark{font-family:var(--serif);font-weight:500;letter-spacing:.18em;color:var(--paper);font-size:16px;line-height:1.1}
+.wordmark small{display:block;font-family:var(--italic);font-style:italic;font-size:10px;letter-spacing:.32em;color:var(--gold-bright);text-transform:uppercase;margin-top:3px}
+nav.primary{display:flex;gap:28px}
+nav.primary a{font-family:var(--serif);font-size:13px;letter-spacing:.22em;color:var(--paper);transition:color .3s}
+nav.primary a:hover{color:var(--gold-bright)}
+.site-header.is-scrolled nav.primary a:hover{color:var(--gold-dark)}
+
+/* ===== HERO ===== */
+.hero{
+  position:relative;min-height:88vh;
+  background:url('images/nae_03_potted.jpg') center/cover no-repeat;
+  display:flex;align-items:flex-end;color:var(--paper);
+  isolation:isolate;
+}
+.hero::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,26,12,.5) 0%,rgba(10,26,12,.2) 40%,rgba(10,26,12,.8) 100%);z-index:1}
+.hero .corner{position:absolute;width:60px;height:60px;border:1px solid var(--gold);z-index:3}
+.hero .c-tl{top:32px;left:32px;border-right:none;border-bottom:none}
+.hero .c-tr{top:32px;right:32px;border-left:none;border-bottom:none}
+.hero .c-bl{bottom:32px;left:32px;border-right:none;border-top:none}
+.hero .c-br{bottom:32px;right:32px;border-left:none;border-top:none}
+.hero .inner{position:relative;z-index:2;padding:0 40px 120px;max-width:1240px;margin:0 auto;width:100%}
+.hero .kicker{font-family:var(--italic);font-style:italic;color:var(--gold-bright);letter-spacing:.32em;font-size:13px;text-transform:uppercase;margin-bottom:24px}
+.hero h1{font-family:var(--serif);font-weight:400;font-size:clamp(48px,7vw,96px);line-height:1.18;letter-spacing:.06em;text-wrap:balance}
+.hero h1 em{font-family:var(--italic);font-style:italic;color:var(--gold-bright);font-weight:500}
+.hero .sub{font-family:var(--serif);font-size:18px;letter-spacing:.16em;margin-top:24px;color:rgba(245,240,227,.85);max-width:560px;line-height:1.9}
+
+/* ===== BUTTONS ===== */
+.btn{
+  display:inline-flex;align-items:center;gap:14px;
+  padding:18px 36px;font-family:var(--serif);font-size:13px;letter-spacing:.28em;
+  background:linear-gradient(135deg,var(--gold) 0%,var(--gold-bright) 100%);color:var(--forest-deep);
+  position:relative;overflow:hidden;transition:all .4s ease;cursor:pointer;
+  border:none;
+}
+.btn::before{content:"";position:absolute;inset:0;background:linear-gradient(120deg,transparent 30%,rgba(255,255,255,.4),transparent 70%);transform:translateX(-100%);transition:transform .8s ease}
+.btn:hover::before{transform:translateX(100%)}
+.btn.ghost{background:transparent;color:var(--paper);border:1px solid var(--paper)}
+.btn.ghost:hover{background:var(--paper);color:var(--forest-deep)}
+.btn.dark{background:var(--forest-deep);color:var(--paper)}
+.btn .arr{transition:transform .3s}
+.btn:hover .arr{transform:translateX(4px)}
+.cta-row{display:flex;gap:18px;margin-top:48px;flex-wrap:wrap}
+
+/* ===== ORNAMENT / TITLE ===== */
+.ornament{display:inline-flex;align-items:center;gap:10px;margin-bottom:18px}
+.ornament .line{width:36px;height:1px;background:var(--gold);display:block}
+.ornament .dia{width:6px;height:6px;background:var(--gold);transform:rotate(45deg)}
+.ornament .line.r{background:linear-gradient(90deg,var(--gold),transparent)}
+.eyebrow{display:block;text-align:center;font-family:var(--italic);font-style:italic;font-size:13px;letter-spacing:.32em;color:var(--gold-dark);text-transform:uppercase;margin-bottom:14px}
+.section-title{text-align:center;font-family:var(--serif);font-weight:400;font-size:clamp(36px,4.6vw,58px);letter-spacing:.16em;color:var(--forest-deep);line-height:1.4}
+.section-lede{text-align:center;font-family:var(--serif);font-size:16px;letter-spacing:.1em;color:var(--ink-soft);max-width:680px;margin:24px auto 0;line-height:2}
+
+/* reveal */
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .9s ease,transform .9s ease;transition-delay:var(--d,0ms)}
+.reveal.in{opacity:1;transform:none}
+
+/* ===== INTRO ===== */
+.intro{background:var(--paper)}
+.intro .cols{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;margin-top:80px}
+.intro h2.lead{font-family:var(--serif);font-weight:400;font-size:clamp(28px,3.4vw,42px);line-height:1.6;letter-spacing:.1em;color:var(--forest-deep);margin-bottom:28px;text-wrap:pretty}
+.intro h2.lead em{font-family:var(--italic);font-style:italic;color:var(--gold-dark)}
+.intro p{font-size:15.5px;color:var(--ink-soft);line-height:2.05;margin-bottom:18px}
+.intro .img{aspect-ratio:4/5;background:url('images/nae_01_sapling.jpg') center/cover no-repeat;box-shadow:var(--shadow-lift);position:relative}
+.intro .img .caption{position:absolute;bottom:20px;left:20px;background:var(--paper);padding:10px 16px;font-family:var(--italic);font-style:italic;font-size:12px;letter-spacing:.22em;color:var(--forest-deep)}
+
+/* ===== LINEUP (products) ===== */
+.lineup{background:var(--ivory-2);position:relative}
+.lineup .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;margin-top:80px}
+.product{
+  background:var(--paper);border:1px solid var(--rule);
+  display:flex;flex-direction:column;transition:transform .4s ease,box-shadow .4s ease;
+}
+.product:hover{transform:translateY(-4px);box-shadow:var(--shadow-lift)}
+.product .photo{aspect-ratio:4/3;background-size:cover;background-position:center;position:relative}
+.product .photo .num{position:absolute;top:18px;left:18px;font-family:var(--italic);font-style:italic;font-size:13px;letter-spacing:.32em;color:var(--paper);background:var(--forest-deep);padding:6px 14px;text-transform:uppercase}
+.product .body{padding:34px 32px 32px;flex:1;display:flex;flex-direction:column}
+.product .size{font-family:var(--italic);font-style:italic;color:var(--gold-dark);letter-spacing:.26em;font-size:12px;text-transform:uppercase;margin-bottom:8px}
+.product h3{font-family:var(--serif);font-weight:500;font-size:22px;letter-spacing:.14em;color:var(--forest-deep);margin-bottom:14px;line-height:1.5}
+.product .desc{font-size:14px;color:var(--ink-soft);line-height:1.95;margin-bottom:22px;flex:1}
+.product .price{display:flex;align-items:baseline;gap:8px;padding:18px 0;border-top:1px dashed var(--rule);margin-top:auto}
+.product .price .yen{font-family:var(--serif);color:var(--gold-dark);font-size:14px}
+.product .price .num{font-family:var(--italic);font-style:italic;color:var(--forest-deep);font-size:36px;font-weight:500;line-height:1;letter-spacing:.02em}
+.product .price .per{color:var(--ink-soft);font-size:12px;letter-spacing:.16em;margin-left:auto}
+.product ul{list-style:none;padding:0;margin:0 0 22px}
+.product li{padding:8px 0 8px 22px;position:relative;font-size:13.5px;color:var(--ink-soft)}
+.product li::before{content:"";position:absolute;left:0;top:14px;width:8px;height:1px;background:var(--gold)}
+.product .order{display:inline-flex;align-items:center;gap:10px;padding:14px 20px;border:1px solid var(--forest-deep);font-family:var(--serif);font-size:12px;letter-spacing:.26em;color:var(--forest-deep);background:transparent;transition:all .3s ease;justify-content:center}
+.product .order:hover{background:var(--forest-deep);color:var(--paper)}
+.product.featured{border:1px solid var(--gold)}
+.product.featured .ribbon{position:absolute;top:18px;right:0;background:var(--gold);color:var(--forest-deep);font-family:var(--serif);font-weight:500;font-size:11px;letter-spacing:.3em;padding:6px 16px;z-index:2}
+
+/* ===== POINTS (育苗のこだわり) ===== */
+.points{background:var(--forest-deep);color:var(--paper);position:relative;overflow:hidden}
+.points::before{content:"";position:absolute;inset:0;opacity:.25;background:radial-gradient(circle at 80% 20%,rgba(201,168,76,.15),transparent 45%)}
+.points .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:0;margin-top:80px;border-top:1px solid var(--rule-dark);border-left:1px solid var(--rule-dark)}
+.point{padding:48px 44px;border-bottom:1px solid var(--rule-dark);border-right:1px solid var(--rule-dark);position:relative}
+.point .n{font-family:var(--italic);font-style:italic;color:var(--gold-bright);font-size:34px;letter-spacing:.04em;display:block;margin-bottom:18px;line-height:1}
+.point h3{font-family:var(--serif);font-weight:500;font-size:22px;letter-spacing:.14em;color:var(--paper);line-height:1.6;margin-bottom:14px}
+.point p{font-size:14.5px;color:rgba(245,240,227,.78);line-height:2}
+
+/* ===== GALLERY ===== */
+.gallery{background:var(--paper)}
+.gallery .grid{display:grid;grid-template-columns:1.4fr 1fr;grid-template-rows:1fr 1fr;gap:18px;margin-top:80px;height:680px}
+.gallery .g{background-size:cover;background-position:center;position:relative;overflow:hidden}
+.gallery .g1{grid-row:1/3;background-image:url('images/nae_04_field.jpg')}
+.gallery .g2{background-image:url('images/nae_02_roots.jpg')}
+.gallery .g3{background-image:url('images/nae_01_sapling.jpg')}
+.gallery .cap{position:absolute;bottom:18px;left:18px;background:rgba(245,240,227,.92);padding:8px 14px;font-family:var(--serif);font-size:12px;letter-spacing:.18em;color:var(--forest-deep)}
+
+/* ===== CARE / SHIPPING ===== */
+.ship{background:var(--ivory-2)}
+.ship .cols{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start;margin-top:80px}
+.ship h3{font-family:var(--serif);font-weight:500;font-size:22px;letter-spacing:.14em;color:var(--forest-deep);margin-bottom:18px;line-height:1.6}
+.ship p{font-size:14.5px;color:var(--ink-soft);line-height:2;margin-bottom:14px}
+.spec{margin-top:28px;border-top:1px solid var(--rule)}
+.spec .row{display:grid;grid-template-columns:130px 1fr;gap:20px;padding:14px 0;border-bottom:1px solid var(--rule)}
+.spec .k{font-family:var(--serif);font-size:12px;letter-spacing:.22em;color:var(--gold-dark)}
+.spec .v{font-size:14px;color:var(--ink)}
+
+/* ===== CTA ===== */
+.cta-band{background:url('images/nae_04_field.jpg') center/cover no-repeat;position:relative;color:var(--paper);text-align:center;padding:160px 40px}
+.cta-band::before{content:"";position:absolute;inset:0;background:rgba(10,26,12,.78)}
+.cta-band .inner{position:relative;z-index:2;max-width:780px;margin:0 auto}
+.cta-band h2{font-family:var(--serif);font-weight:400;font-size:clamp(34px,4.4vw,52px);letter-spacing:.14em;line-height:1.5;margin-bottom:24px}
+.cta-band p{font-family:var(--serif);font-size:16px;letter-spacing:.12em;color:rgba(245,240,227,.85);line-height:2;max-width:560px;margin:0 auto 40px}
+
+/* ===== FOOTER ===== */
+.foot{background:var(--forest-deepest);color:rgba(245,240,227,.7);padding:64px 0 32px}
+.foot .wrap{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:20px}
+.foot a{color:var(--gold-bright);font-family:var(--serif);letter-spacing:.18em;font-size:13px}
+.foot small{font-family:var(--italic);font-style:italic;letter-spacing:.22em;font-size:12px}
+
+/* ===== PRINT ===== */
+@media print {
+  @page { size: A4 portrait; margin: 0; }
+  html, body {
+    background: var(--paper) !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    color-adjust: exact !important;
+  }
+  body::after { display: none !important; }
+  *, *::before, *::after {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    color-adjust: exact !important;
+    transition: none !important;
+    animation: none !important;
+  }
+  .site-header { display: none !important; }
+  /* force any reveal element to be visible */
+  .reveal { opacity: 1 !important; transform: none !important; }
+  .btn::before, .product:hover, .order:hover { display: none; }
+
+  /* Each major section starts on its own page */
+  .hero {
+    break-after: page;
+    page-break-after: always;
+    min-height: 0 !important;
+    height: 297mm;
+    width: 210mm;
+    padding: 0 !important;
+  }
+  .hero .inner { padding: 0 16mm 24mm !important; max-width: none !important; }
+  .hero h1 { font-size: 56px !important; }
+  .hero .sub { font-size: 14px !important; }
+  .hero .cta-row { display: none !important; }
+
+  section.intro,
+  section.lineup,
+  section.points,
+  section.gallery,
+  section.ship,
+  section.cta-band {
+    break-before: page;
+    page-break-before: always;
+    break-inside: avoid;
+    page-break-inside: avoid;
+    padding: 14mm 0 !important;
+    min-height: 297mm;
+    width: 210mm;
+  }
+
+  .wrap { max-width: none !important; padding: 0 16mm !important; }
+  .section-pad { padding: 14mm 0 !important; }
+
+  /* INTRO */
+  .intro .cols { grid-template-columns: 1fr 1.1fr !important; gap: 12mm !important; margin-top: 10mm !important; }
+  .intro .img { aspect-ratio: 3/4 !important; }
+  .intro h2.lead { font-size: 22px !important; margin-bottom: 12px !important; }
+  .intro p { font-size: 12px !important; line-height: 1.85 !important; margin-bottom: 8px !important; }
+
+  /* LINEUP */
+  .lineup .grid { grid-template-columns: repeat(3, 1fr) !important; gap: 6mm !important; margin-top: 8mm !important; }
+  .product { break-inside: avoid; page-break-inside: avoid; }
+  .product .body { padding: 18px 18px 16px !important; }
+  .product h3 { font-size: 16px !important; margin-bottom: 8px !important; }
+  .product .desc { font-size: 11px !important; line-height: 1.7 !important; margin-bottom: 10px !important; }
+  .product li { font-size: 11px !important; padding: 4px 0 4px 18px !important; }
+  .product .price .num { font-size: 26px !important; }
+  .product .price .per { font-size: 10px !important; }
+  .product .order { font-size: 10px !important; padding: 10px 14px !important; }
+
+  /* POINTS */
+  .points .grid { grid-template-columns: 1fr 1fr !important; margin-top: 8mm !important; }
+  .point { padding: 24px 22px !important; }
+  .point .n { font-size: 26px !important; margin-bottom: 10px !important; }
+  .point h3 { font-size: 16px !important; margin-bottom: 8px !important; }
+  .point p { font-size: 12px !important; line-height: 1.8 !important; }
+
+  /* GALLERY */
+  .gallery .grid { height: 180mm !important; gap: 4mm !important; margin-top: 8mm !important; }
+
+  /* SHIP */
+  .ship .cols { grid-template-columns: 1fr 1fr !important; gap: 12mm !important; margin-top: 8mm !important; }
+  .ship h3 { font-size: 16px !important; }
+  .ship p { font-size: 12px !important; line-height: 1.85 !important; }
+  .spec .row { padding: 8px 0 !important; grid-template-columns: 90px 1fr !important; gap: 12px !important; }
+  .spec .k { font-size: 10px !important; }
+  .spec .v { font-size: 12px !important; }
+
+  /* CTA */
+  .cta-band { padding: 60mm 16mm !important; min-height: 297mm; }
+  .cta-band h2 { font-size: 32px !important; }
+  .cta-band p { font-size: 13px !important; }
+  .cta-band .cta-row { display: none !important; }
+
+  /* FOOTER */
+  .foot { padding: 20px 0 !important; break-before: avoid; }
+  .foot small, .foot a { font-size: 10px !important; }
+
+  .section-title { font-size: 28px !important; }
+  .section-lede { font-size: 12px !important; line-height: 1.8 !important; margin-top: 12px !important; }
+  .eyebrow { font-size: 10px !important; }
+}
+
+@media (max-width:980px){
+  .intro .cols, .ship .cols{grid-template-columns:1fr;gap:48px}
+  .lineup .grid{grid-template-columns:1fr}
+  .points .grid{grid-template-columns:1fr}
+  .gallery .grid{grid-template-columns:1fr;grid-template-rows:repeat(3,260px);height:auto}
+  .gallery .g1{grid-row:auto}
+  .section-pad{padding:96px 0}
+  .wrap{padding:0 24px}
+  .hero .inner{padding:0 24px 80px}
+  nav.primary{display:none}
+}
+</style>
+</head>
+<body>
+
+<header class="site-header" id="siteHeader">
+  <a href="index.html" class="brand">
+    <img src="images/logo.png" alt="雲仙花苑">
+    <div class="wordmark">雲仙花苑<small>Unzen Kaen</small></div>
+  </a>
+  <nav class="primary">
+    <a href="index.html#about">農園について</a>
+    <a href="index.html#story">榊の物語</a>
+    <a href="index.html#quality">品質</a>
+    <a href="nursery.html" style="color:var(--gold-bright)">苗の販売</a>
+    <a href="index.html#shop">ご購入</a>
+    <a href="index.html#contact">お問合せ</a>
+  </nav>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <span class="corner c-tl"></span><span class="corner c-tr"></span>
+  <span class="corner c-bl"></span><span class="corner c-br"></span>
+  <div class="inner">
+    <div class="kicker">Unzen Kaen — Sakaki Saplings</div>
+    <h1>雲仙の<em>苗木</em>を、<br/>あなたの土に。</h1>
+    <p class="sub">火山性の土と有明海からの霧。雲仙で育てた本榊の苗を、ご家庭の庭・寺社の境内・農家の圃場へお分けしています。</p>
+    <div class="cta-row">
+      <a class="btn" href="#lineup">商品ラインナップ <span class="arr">→</span></a>
+      <a class="btn ghost" href="index.html#contact">大量注文のご相談 <span class="arr">→</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- INTRO -->
+<section class="intro section-pad">
+  <div class="wrap">
+    <div class="reveal">
+      <div style="text-align:center"><span class="ornament"><span class="line"></span><span class="dia"></span><span class="line r"></span></span></div>
+      <span class="eyebrow">Why our saplings</span>
+      <h2 class="section-title">雲仙の苗木という、選択。</h2>
+    </div>
+    <div class="cols">
+      <div class="img reveal"><span class="caption">Unzen — saplings</span></div>
+      <div class="reveal" style="--d:150ms">
+        <h2 class="lead">本榊は、<em>10年</em>かけて育つ。<br/>苗の段階で、もう艶が違う。</h2>
+        <p>本榊(ほんさかき)は神事に使われる伝統的な常緑樹。市場に出回る多くは輸入のヒサカキですが、私たちは長崎・雲仙の地で本榊を専門に育てています。</p>
+        <p>苗木の段階から葉肉の厚みと艶が異なり、植えた地でゆっくりと根を張ります。寺社の境内、農家の圃場、ご家庭の庭木として — 「祈りに値する一本」をお届けします。</p>
+        <p>育苗から出荷まで一貫して農園内で管理。鉢上げ後の活着率の高さに、ご注文いただいた方からご好評いただいています。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LINEUP -->
+<section class="lineup section-pad" id="lineup">
+  <div class="wrap">
+    <div class="reveal">
+      <div style="text-align:center"><span class="ornament"><span class="line"></span><span class="dia"></span><span class="line r"></span></span></div>
+      <span class="eyebrow">Lineup</span>
+      <h2 class="section-title">商品ラインナップ</h2>
+      <p class="section-lede">サイズ・本数に応じて、最適な苗をお選びいただけます。複数本の同梱発送・大量注文も承ります。</p>
+    </div>
+
+    <div class="grid">
+      <article class="product reveal">
+        <div class="photo" style="background-image:url('images/nae_01_sapling.jpg')"><span class="num">小</span></div>
+        <div class="body">
+          <div class="size">Small / 30〜50cm</div>
+          <h3>挿し木苗・1年生</h3>
+          <p class="desc">挿し木から1年育成した若苗。小さな鉢でじっくり育てたい方、まずは1本から始めたい方に。</p>
+          <ul>
+            <li>樹高 30〜50cm</li>
+            <li>3.5号ポット入り</li>
+            <li>育苗環境:雲仙・露地</li>
+          </ul>
+          <div class="price"><span class="yen">¥</span><span class="num">1,500</span><span class="per">/ 1本(税込・送料別)</span></div>
+          <a class="order" href="index.html#contact">この苗を注文する <span>→</span></a>
+        </div>
+      </article>
+
+      <article class="product featured reveal" style="--d:120ms">
+        <span class="ribbon">人気</span>
+        <div class="photo" style="background-image:url('images/nae_03_potted.jpg')"><span class="num">中</span></div>
+        <div class="body">
+          <div class="size">Medium / 60〜90cm</div>
+          <h3>育苗3年生・ポット苗</h3>
+          <p class="desc">3年かけて雲仙の気候で育てた中堅サイズ。植え付け後の活着率が高く、庭木・境内木としておすすめ。</p>
+          <ul>
+            <li>樹高 60〜90cm</li>
+            <li>5号ポット入り</li>
+            <li>枝張り・葉付き選別済</li>
+            <li>10本以上で割引対応</li>
+          </ul>
+          <div class="price"><span class="yen">¥</span><span class="num">3,800</span><span class="per">/ 1本(税込・送料別)</span></div>
+          <a class="order" href="index.html#contact">この苗を注文する <span>→</span></a>
+        </div>
+      </article>
+
+      <article class="product reveal" style="--d:240ms">
+        <div class="photo" style="background-image:url('images/nae_04_field.jpg')"><span class="num">大</span></div>
+        <div class="body">
+          <div class="size">Large / 100cm〜</div>
+          <h3>圃場用・大苗</h3>
+          <p class="desc">採枝出荷を視野に入れた農家・生産者向けの大苗。圃場での即戦力としてご利用いただけます。100本単位での発送可。</p>
+          <ul>
+            <li>樹高 100cm〜</li>
+            <li>露地掘り取り・根巻き発送</li>
+            <li>個別お見積り</li>
+            <li>圃場視察も承ります</li>
+          </ul>
+          <div class="price"><span class="yen">¥</span><span class="num">要問合</span><span class="per">/ 数量による</span></div>
+          <a class="order" href="index.html#contact">お見積り依頼 <span>→</span></a>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- POINTS -->
+<section class="points on-dark section-pad">
+  <div class="wrap" style="position:relative;z-index:2">
+    <div class="reveal">
+      <div style="text-align:center"><span class="ornament"><span class="line"></span><span class="dia"></span><span class="line r"></span></span></div>
+      <span class="eyebrow">Our nursery</span>
+      <h2 class="section-title">育苗のこだわり</h2>
+    </div>
+    <div class="grid">
+      <div class="point reveal">
+        <span class="n">01</span>
+        <h3>本榊専門の育苗</h3>
+        <p>市場に多いヒサカキとは異なる、本来の「本榊(Cleyera japonica)」を専門に育てています。葉肉の厚み、楕円の輪郭、艶の深さ — すべてが違います。</p>
+      </div>
+      <div class="point reveal" style="--d:120ms">
+        <span class="n">02</span>
+        <h3>火山土壌での露地育成</h3>
+        <p>雲仙普賢岳のミネラル豊富な土と、有明海から立ち上る朝霧。挿し木から育てる露地環境が、しっかりとした根と葉色を生み出します。</p>
+      </div>
+      <div class="point reveal" style="--d:240ms">
+        <span class="n">03</span>
+        <h3>農家直送・選別出荷</h3>
+        <p>仲卸を通さず、農園から直接お届け。出荷前に枝ぶり・葉色・根の張りを一本ずつ確認し、不良苗は出しません。</p>
+      </div>
+      <div class="point reveal" style="--d:360ms">
+        <span class="n">04</span>
+        <h3>植付け後のご相談</h3>
+        <p>植え付け方法・剪定・水やりについて、ご注文後もメール・電話でご相談を承ります。育てる楽しみを、共に。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section class="gallery section-pad tight">
+  <div class="wrap">
+    <div class="reveal">
+      <div style="text-align:center"><span class="ornament"><span class="line"></span><span class="dia"></span><span class="line r"></span></span></div>
+      <span class="eyebrow">Field notes</span>
+      <h2 class="section-title">育苗の現場から</h2>
+    </div>
+    <div class="grid">
+      <div class="g g1 reveal"><span class="cap">露地で育つ若苗</span></div>
+      <div class="g g2 reveal" style="--d:120ms"><span class="cap">根の張り</span></div>
+      <div class="g g3 reveal" style="--d:240ms"><span class="cap">圃場視察</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- SHIPPING -->
+<section class="ship section-pad">
+  <div class="wrap">
+    <div class="reveal">
+      <div style="text-align:center"><span class="ornament"><span class="line"></span><span class="dia"></span><span class="line r"></span></span></div>
+      <span class="eyebrow">Shipping &amp; care</span>
+      <h2 class="section-title">配送・植付けのご案内</h2>
+    </div>
+    <div class="cols">
+      <div class="reveal">
+        <h3>到着後の植え付け</h3>
+        <p>到着後は速やかに開封し、半日陰の場所で養生してから植え付けてください。鉢のまま置くだけでも、しばらくは健やかに育ちます。</p>
+        <p>植え付けの際は、根鉢を崩さず、水はけのよい土に植えるのがポイントです。植え付け後はたっぷり水を与え、最初の1〜2週間は土を乾かさないように。</p>
+      </div>
+      <div class="reveal" style="--d:120ms">
+        <h3>配送について</h3>
+        <div class="spec">
+          <div class="row"><div class="k">配送方法</div><div class="v">ヤマト便/佐川/西濃 — 数量に応じて選定</div></div>
+          <div class="row"><div class="k">発送日</div><div class="v">ご注文後3〜7営業日以内に発送</div></div>
+          <div class="row"><div class="k">配送可能</div><div class="v">日本全国(北海道・沖縄は別途)</div></div>
+          <div class="row"><div class="k">大量注文</div><div class="v">100本〜:個別お見積り・送料調整可</div></div>
+          <div class="row"><div class="k">お支払い</div><div class="v">銀行振込・請求書払い(法人)</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-band">
+  <div class="inner">
+    <div class="reveal">
+      <span class="eyebrow" style="color:var(--gold-bright)">Get in touch</span>
+      <h2>ご注文・お見積り、<br/>お気軽にご相談ください。</h2>
+      <p>1本からでも、100本以上でも対応いたします。圃場の視察、品種のご相談、育成計画など、まずはお問い合わせください。</p>
+      <div class="cta-row" style="justify-content:center">
+        <a class="btn" href="index.html#contact">お問い合わせ <span class="arr">→</span></a>
+        <a class="btn ghost" href="index.html">トップへ戻る <span class="arr">→</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="foot">
+  <div class="wrap">
+    <small>© 2026 雲仙花苑 — Nagasaki, Japan</small>
+    <div><a href="index.html">トップへ</a> &nbsp;·&nbsp; <a href="index.html#contact">お問い合わせ</a></div>
+  </div>
+</footer>
+
+<script>
+const header = document.getElementById('siteHeader');
+const onScroll = () => {
+  if(window.scrollY > 40) header.classList.add('is-scrolled');
+  else header.classList.remove('is-scrolled');
+};
+window.addEventListener('scroll', onScroll, {passive:true}); onScroll();
+
+const io = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }
+  });
+},{threshold:0.12, rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+// Auto-print: wait for fonts + background images, then print
+(async () => {
+  try { if (document.fonts && document.fonts.ready) await document.fonts.ready; } catch(e){}
+  // Wait for all <img> and visible background-images to load
+  const imgs = [...document.querySelectorAll('img')].map(img => img.complete ? null :
+    new Promise(res => { img.addEventListener('load', res, {once:true}); img.addEventListener('error', res, {once:true}); }));
+  // gather background-image urls
+  const bgUrls = new Set();
+  document.querySelectorAll('*').forEach(el => {
+    const bg = getComputedStyle(el).backgroundImage;
+    const m = bg && bg.match(/url\(["']?([^"')]+)["']?\)/g);
+    if (m) m.forEach(u => bgUrls.add(u.replace(/url\(["']?|["']?\)$/g, '')));
+  });
+  const bgPromises = [...bgUrls].map(u => new Promise(res => {
+    const i = new Image(); i.onload = res; i.onerror = res; i.src = u;
+  }));
+  await Promise.all([...imgs, ...bgPromises]);
+  await new Promise(r => setTimeout(r, 500));
+  window.print();
+})();
+</script>
+</body>
+</html>

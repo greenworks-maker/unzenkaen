@@ -1,0 +1,323 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>品質へのこだわり — 雲仙花苑</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;500;600;700&family=Noto+Sans+JP:wght@300;400;500;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#f5f0e3; --ivory:#ece5d2; --ivory-2:#ece5d2; --parchment:#e9dfc7;
+  --forest:#1a3a1f; --forest-deep:#0c1e0e; --forest-mid:#2d5230; --forest-deepest:#0a1a0c;
+  --gold:#c9a84c; --gold-bright:#e0bc5a; --gold-dark:#8c7530;
+  --ink:#1a1a15; --ink-soft:#3a3a32;
+  --rule:rgba(12,30,14,.18); --rule-dark:rgba(201,168,76,.28);
+  --shadow-lift:0 30px 60px -25px rgba(12,30,14,.4);
+  --serif:"Noto Serif JP","Hiragino Mincho ProN","YuMincho",serif;
+  --sans:"Noto Sans JP","Hiragino Kaku Gothic ProN",sans-serif;
+  --italic:"Cormorant Garamond",serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:15px;line-height:1.85;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+body{position:relative;overflow-x:hidden}
+body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:200;mix-blend-mode:overlay;opacity:.06;background-image:radial-gradient(rgba(0,0,0,.6) 1px, transparent 1px);background-size:3px 3px}
+.wrap{max-width:1240px;margin:0 auto;padding:0 40px}
+
+/* ===== HEADER ===== */
+.site-header{
+  position:fixed;top:0;left:0;right:0;z-index:50;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:20px 40px;transition:all .4s ease;
+  background:linear-gradient(180deg,rgba(12,30,14,.6),transparent);
+}
+.site-header.is-scrolled{background:rgba(245,240,227,.96);backdrop-filter:blur(12px);box-shadow:0 1px 0 rgba(12,30,14,.06)}
+.site-header.is-scrolled .brand .wordmark, .site-header.is-scrolled nav.primary a{color:var(--forest-deep)}
+.brand{display:flex;align-items:center;gap:14px}
+.brand img{width:42px;height:42px;object-fit:contain}
+.wordmark{font-family:var(--serif);font-weight:500;letter-spacing:.18em;color:var(--paper);font-size:16px;line-height:1.1}
+.wordmark small{display:block;font-family:var(--italic);font-style:italic;font-size:10px;letter-spacing:.32em;color:var(--gold-bright);text-transform:uppercase;margin-top:3px}
+nav.primary{display:flex;gap:28px}
+nav.primary a{font-family:var(--serif);font-size:13px;letter-spacing:.22em;color:var(--paper);transition:color .3s}
+nav.primary a:hover{color:var(--gold-bright)}
+.site-header.is-scrolled nav.primary a:hover{color:var(--gold-dark)}
+
+/* ===== HERO ===== */
+.q-hero{
+  position:relative;min-height:72vh;
+  background:url('images/quality_field.jpg') center/cover no-repeat;
+  display:flex;align-items:flex-end;color:var(--paper);
+  isolation:isolate;
+}
+.q-hero::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,26,12,.45) 0%,rgba(10,26,12,.25) 40%,rgba(10,26,12,.85) 100%);z-index:1}
+.q-hero .corner{position:absolute;width:60px;height:60px;border:1px solid var(--gold);z-index:3}
+.q-hero .c-tl{top:32px;left:32px;border-right:none;border-bottom:none}
+.q-hero .c-tr{top:32px;right:32px;border-left:none;border-bottom:none}
+.q-hero .c-bl{bottom:32px;left:32px;border-right:none;border-top:none}
+.q-hero .c-br{bottom:32px;right:32px;border-left:none;border-top:none}
+.q-hero .inner{position:relative;z-index:2;padding:0 40px 100px;max-width:1240px;margin:0 auto;width:100%}
+.q-hero .kicker{font-family:var(--italic);font-style:italic;color:var(--gold-bright);letter-spacing:.32em;font-size:13px;text-transform:uppercase;margin-bottom:20px}
+.q-hero h1{font-family:var(--serif);font-weight:400;font-size:clamp(40px,6vw,80px);line-height:1.2;letter-spacing:.08em;text-wrap:balance}
+.q-hero h1 em{font-family:var(--italic);font-style:italic;color:var(--gold-bright);font-weight:500}
+.q-hero .sub{font-family:var(--serif);font-size:17px;letter-spacing:.16em;margin-top:24px;color:rgba(245,240,227,.85);max-width:620px;line-height:1.95}
+
+/* ===== ORNAMENT ===== */
+.ornament{display:inline-flex;align-items:center;gap:10px;margin-bottom:14px}
+.ornament .line{width:36px;height:1px;background:var(--gold);display:block}
+.ornament .dia{width:6px;height:6px;background:var(--gold);transform:rotate(45deg)}
+.ornament .line.r{background:linear-gradient(90deg,var(--gold),transparent)}
+.eyebrow{display:block;font-family:var(--italic);font-style:italic;font-size:12px;letter-spacing:.32em;color:var(--gold-dark);text-transform:uppercase;margin-bottom:14px}
+
+/* ===== INDEX (TOC) ===== */
+.toc{background:var(--paper);padding:90px 0 60px}
+.toc h2{font-family:var(--serif);font-weight:400;font-size:clamp(28px,3.6vw,42px);letter-spacing:.16em;color:var(--forest-deep);text-align:center;margin-bottom:48px}
+.toc .grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;max-width:1100px;margin:0 auto;padding:0 40px}
+.toc a{
+  display:block;padding:32px 26px;
+  background:var(--ivory);border:1px solid var(--rule);
+  transition:all .35s ease;
+  position:relative;
+}
+.toc a:hover{background:var(--paper);border-color:var(--gold);transform:translateY(-3px);box-shadow:var(--shadow-lift)}
+.toc a .n{font-family:var(--italic);font-style:italic;font-size:15px;letter-spacing:.32em;color:var(--gold-dark);text-transform:uppercase;display:block;margin-bottom:14px}
+.toc a h3{font-family:var(--serif);font-weight:500;color:var(--forest-deep);font-size:18px;letter-spacing:.1em;line-height:1.6}
+.toc a .arr{position:absolute;bottom:18px;right:22px;color:var(--gold-dark);font-family:var(--italic);font-style:italic;transition:transform .3s ease}
+.toc a:hover .arr{transform:translateX(4px)}
+
+/* ===== SECTIONS ===== */
+.q-section{padding:140px 0;position:relative;scroll-margin-top:80px}
+.q-section.alt{background:var(--ivory)}
+.q-section.dark{background:var(--forest-deep);color:var(--paper)}
+.q-section .wrap{position:relative}
+.q-section .row{display:grid;grid-template-columns:1.05fr 1fr;gap:90px;align-items:center}
+.q-section .row.rev{grid-template-columns:1fr 1.05fr}
+.q-section .row.rev .text{order:2}
+.q-section .row.rev .img{order:1}
+.q-section .img{
+  aspect-ratio:4/5;background-size:cover;background-position:center;
+  box-shadow:var(--shadow-lift);position:relative;
+}
+.q-section .img .stamp{
+  position:absolute;bottom:-14px;left:-14px;
+  background:var(--paper);padding:14px 22px;
+  font-family:var(--italic);font-style:italic;font-size:13px;letter-spacing:.32em;color:var(--forest-deep);
+  text-transform:uppercase;
+  box-shadow:0 8px 18px -10px rgba(12,30,14,.3);
+}
+.q-section.dark .img .stamp{background:var(--forest-deepest);color:var(--gold-bright)}
+
+.q-section .num{font-family:var(--italic);font-style:italic;font-size:16px;letter-spacing:.32em;color:var(--gold-dark);text-transform:uppercase;display:block;margin-bottom:12px}
+.q-section.dark .num{color:var(--gold-bright)}
+.q-section h2{
+  font-family:var(--serif);font-weight:400;font-size:clamp(34px,4.4vw,54px);
+  letter-spacing:.1em;color:var(--forest-deep);line-height:1.4;margin-bottom:30px;
+}
+.q-section.dark h2{color:var(--paper)}
+.q-section h2 em{font-family:var(--italic);font-style:italic;color:var(--gold-dark);font-weight:500}
+.q-section.dark h2 em{color:var(--gold-bright)}
+
+.q-section p{font-size:15.5px;line-height:2.05;color:var(--ink-soft);margin-bottom:18px;text-wrap:pretty}
+.q-section.dark p{color:rgba(245,240,227,.78)}
+
+.q-section .pull{
+  margin:36px 0;padding:24px 28px;
+  border-left:2px solid var(--gold);
+  font-family:var(--serif);font-size:17px;line-height:1.95;color:var(--forest-deep);
+  letter-spacing:.04em;font-weight:500;
+  background:rgba(201,168,76,.05);
+}
+.q-section.dark .pull{color:var(--paper);background:rgba(201,168,76,.08)}
+
+.q-section .specs{margin-top:32px;border-top:1px solid var(--rule)}
+.q-section.dark .specs{border-top-color:var(--rule-dark)}
+.q-section .specs .row2{display:grid;grid-template-columns:160px 1fr;gap:24px;padding:14px 0;border-bottom:1px solid var(--rule)}
+.q-section.dark .specs .row2{border-bottom-color:var(--rule-dark)}
+.q-section .specs .k{font-family:var(--serif);font-size:12px;letter-spacing:.22em;color:var(--gold-dark)}
+.q-section.dark .specs .k{color:var(--gold-bright)}
+.q-section .specs .v{font-size:14px;color:var(--ink)}
+.q-section.dark .specs .v{color:var(--paper)}
+
+/* ===== back / nav ===== */
+.q-nav{padding:80px 0;background:var(--paper);border-top:1px solid var(--rule);text-align:center}
+.q-nav a{
+  display:inline-flex;align-items:center;gap:14px;
+  padding:18px 36px;font-family:var(--serif);font-size:13px;letter-spacing:.28em;
+  background:var(--forest-deep);color:var(--paper);
+  transition:all .3s ease;
+}
+.q-nav a:hover{background:var(--gold);color:var(--forest-deep)}
+
+/* ===== FOOTER ===== */
+.foot{background:var(--forest-deepest);color:rgba(245,240,227,.7);padding:64px 0 32px}
+.foot .wrap{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:20px}
+.foot a{color:var(--gold-bright);font-family:var(--serif);letter-spacing:.18em;font-size:13px}
+.foot small{font-family:var(--italic);font-style:italic;letter-spacing:.22em;font-size:12px}
+
+/* reveal */
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .9s ease,transform .9s ease;transition-delay:var(--d,0ms)}
+.reveal.in{opacity:1;transform:none}
+
+@media (max-width:980px){
+  .q-section .row, .q-section .row.rev{grid-template-columns:1fr;gap:48px}
+  .q-section .row.rev .text, .q-section .row.rev .img{order:initial}
+  .toc .grid{grid-template-columns:1fr 1fr}
+  .q-section{padding:96px 0}
+  .wrap{padding:0 24px}
+  nav.primary{display:none}
+}
+@media (max-width:560px){ .toc .grid{grid-template-columns:1fr} }
+</style>
+</head>
+<body>
+
+<header class="site-header" id="siteHeader">
+  <a href="index.html" class="brand">
+    <img src="images/logo.png" alt="雲仙花苑" onerror="this.style.display='none'">
+    <div class="wordmark">雲仙花苑<small>Unzen Kaen</small></div>
+  </a>
+  <nav class="primary">
+    <a href="index.html#about">農園について</a>
+    <a href="index.html#story">榊の物語</a>
+    <a href="quality.html" style="color:var(--gold-bright)">こだわり</a>
+    <a href="nursery.html">苗の販売</a>
+    <a href="index.html#shop">ご購入</a>
+    <a href="index.html#contact">お問合せ</a>
+  </nav>
+</header>
+
+<!-- HERO -->
+<section class="q-hero">
+  <span class="corner c-tl"></span><span class="corner c-tr"></span>
+  <span class="corner c-bl"></span><span class="corner c-br"></span>
+  <div class="inner">
+    <div class="kicker">Our Four Promises</div>
+    <h1>四つの<em>約束</em>。</h1>
+    <p class="sub">土地・四季・品種・直送 ― 雲仙の本榊が、神棚の緑として長く美しく在り続けるための、私たちの揺るぎない指針です。</p>
+  </div>
+</section>
+
+<!-- TOC -->
+<section class="toc">
+  <h2>四つのこだわり</h2>
+  <div class="grid">
+    <a href="#q1"><span class="n">— その一</span><h3>雲仙の自然が育む、特別な国産本榊</h3><span class="arr">→</span></a>
+    <a href="#q2"><span class="n">— その二</span><h3>日本の四季に寄り添う枝ぶり</h3><span class="arr">→</span></a>
+    <a href="#q3"><span class="n">— その三</span><h3>“本物の本榊”を、あなたの神棚へ</h3><span class="arr">→</span></a>
+    <a href="#q4"><span class="n">— その四</span><h3>朝摘み当日、農家から直送。</h3><span class="arr">→</span></a>
+  </div>
+</section>
+
+<!-- Q1 -->
+<section class="q-section alt" id="q1">
+  <div class="wrap">
+    <div class="row">
+      <div class="img reveal" style="background-image:url('images/quality_01_sunset.jpg')"><span class="stamp">— その一 —</span></div>
+      <div class="text reveal" style="--d:120ms">
+        <span class="num">— その一</span>
+        <h2>雲仙の自然が育む、<br/><em>特別な</em>国産本榊</h2>
+        <p>長崎・雲仙普賢岳の麓には、火山活動が幾重にも積み上げた肥沃なミネラル層があります。水はけの良い赤土と、有明海から立ち上る朝霧。この地形が、他のどこでも再現できない本榊の風味と艶を生み出します。</p>
+        <div class="pull">「同じ品種でも、雲仙で育てた榊は、葉の表に光を返す膜のような艶がある」 ― ベテラン仲卸の言葉</div>
+        <p>標高300m前後の丘陵地に植えられた本榊は、昼夜の寒暖差を浴びて葉肉が締まり、色素が深まります。一本ずつ手作業で芽を整え、虫食いや日焼けを起こした葉は剪定の段階で取り除いています。</p>
+        <div class="specs">
+          <div class="row2"><div class="k">栽培地</div><div class="v">長崎県雲仙市・標高 200〜350m</div></div>
+          <div class="row2"><div class="k">土壌</div><div class="v">火山性礫質土・水はけ良好</div></div>
+          <div class="row2"><div class="k">気候</div><div class="v">年間平均気温15℃前後・朝霧多し</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Q2 -->
+<section class="q-section">
+  <div class="wrap">
+    <div class="row rev">
+      <div class="img reveal" style="background-image:url('images/quality_02.jpg')"><span class="stamp">— その二 —</span></div>
+      <div class="text reveal" style="--d:120ms">
+        <span class="num">— その二</span>
+        <h2>日本の<em>四季</em>に<br/>寄り添う枝ぶり</h2>
+        <p>輸入された榊は、収穫から店頭までの長い時間で、本来の艶や張りを失ってしまいます。雲仙花苑の本榊は、日本の風土に根ざして育ち、四季それぞれの表情をたたえています。</p>
+        <p>春は若葉の柔らかな黄緑、夏は深く濃い緑、秋には葉の縁に微かな赤みが差し、冬は艶を増して厳かな佇まいに。神棚にお供えする一対が、一年を通じて同じではないこと ― それが、本物の本榊を選ぶ意味でもあります。</p>
+        <div class="pull">輸入品との違いは、葉に手を触れた瞬間に分かります。厚み、しなり、表面の質感 ― 国産本榊にしか宿らない佇まいが、そこにあります。</div>
+        <p>各季節ごとに最も葉色が美しい個体を選別して出荷しています。神事や祝いの場、ご家庭の神棚 ― それぞれの場にふさわしい一対を、その時期の最良で。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Q3 -->
+<section class="q-section dark" id="q3">
+  <div class="wrap">
+    <div class="row">
+      <div class="img reveal" style="background-image:url('images/quality_03_leaves.jpg')"><span class="stamp">— その三 —</span></div>
+      <div class="text reveal" style="--d:120ms">
+        <span class="num">— その三</span>
+        <h2>“<em>本物</em>の本榊”を、<br/>あなたの神棚へ</h2>
+        <p>市場で「榊」として販売されているもののうち、その多くは中国・台湾原産の<strong>ヒサカキ</strong>です。葉が小さくギザギザがあり、本来の本榊(Cleyera japonica)とは別の樹種です。</p>
+        <p>私たちは、希少な国産本榊のみを専門に育成しています。葉の縁が滑らかで、肉厚、楕円のフォルム ― 神事に古来用いられてきた本物の榊を、確かな出どころと共にお届けします。</p>
+        <div class="pull">大切な場所に供えるものだからこそ、確かな出どころと、確かな品質を。</div>
+        <p>圃場の品種管理は徹底しており、出荷ごとに樹齢・産地・栽培管理の記録を保存。法人・寺社のお客様には、栽培証明書の発行も承っています。</p>
+        <div class="specs">
+          <div class="row2"><div class="k">学名</div><div class="v">Cleyera japonica(本榊)</div></div>
+          <div class="row2"><div class="k">識別</div><div class="v">葉縁が滑らか・楕円・肉厚</div></div>
+          <div class="row2"><div class="k">トレーサビリティ</div><div class="v">圃場区画・樹齢を出荷ごとに記録</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Q4 -->
+<section class="q-section alt" id="q4">
+  <div class="wrap">
+    <div class="row rev">
+      <div class="img reveal" style="background-image:url('images/quality_04.jpg')"><span class="stamp">— その四 —</span></div>
+      <div class="text reveal" style="--d:120ms">
+        <span class="num">— その四</span>
+        <h2>朝摘み当日、<br/><em>農家</em>から直送。</h2>
+        <p>市場・問屋を介する流通では、収穫から店頭まで数日を要します。さらに花屋さんが仕入れてからも並べられるために日数が重なり、お手元に届く頃にはそれ以上の時間が経過していることも珍しくありません。雲仙花苑では、ご注文を受けてから収穫し、収穫当日から三日以内に梱包・発送。お客様の元には朝摘みの瑞々しさのまま到着します。</p>
+        <p>収穫は早朝、葉に朝露が残る時間帯。日が高くなる前に切り取ることで、葉の水分量を最大限に保ちます。切り口にはすぐに水揚げ処理を施し、宅配便で全国へお届けします。</p>
+        <div class="pull">市場経由は収穫からお手元まで一週間以上かかることも。農家直送なら、収穫から<strong>三日以内</strong>に出荷します。</div>
+        <p>お客様からは「神棚の榊立てに置いた瞬間、香りが違う」「これまでの榊は何だったのか」とのお声を多くいただいています。一度試したら戻れない、雲仙の本榊の鮮度を、ぜひご体験ください。</p>
+        <div class="specs">
+          <div class="row2"><div class="k">収穫</div><div class="v">早朝・ご注文確定後</div></div>
+          <div class="row2"><div class="k">発送</div><div class="v">収穫当日から三日以内に出荷</div></div>
+          <div class="row2"><div class="k">日持ち目安</div><div class="v">到着後 2〜3週間(管理状況による)</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BACK -->
+<section class="q-nav">
+  <a href="index.html#quality">← 戻る</a>
+</section>
+
+<footer class="foot">
+  <div class="wrap">
+    <small>© 2026 雲仙花苑 — Nagasaki, Japan</small>
+    <div><a href="index.html">トップへ</a> &nbsp;·&nbsp; <a href="index.html#contact">お問い合わせ</a></div>
+  </div>
+</footer>
+
+<script>
+const header = document.getElementById('siteHeader');
+const onScroll = () => {
+  if(window.scrollY > 40) header.classList.add('is-scrolled');
+  else header.classList.remove('is-scrolled');
+};
+window.addEventListener('scroll', onScroll, {passive:true}); onScroll();
+
+const io = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }
+  });
+},{threshold:0.12, rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+</body>
+</html>
