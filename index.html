@@ -3,8 +3,55 @@
 <head>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
-<title>雲仙本榊 ― 雲仙花苑 公式サイト</title>
-<meta name="description" content="長崎・島原半島、雲仙普賢岳の麓で育てた希少品種の国産本榊「雲仙本榊」。千三百年の信仰と、朝摘み当日出荷の鮮度を、神棚と祭壇にお届けします。"/>
+<title>国産本榊の販売・通販｜雲仙花苑（長崎県・雲仙）― 神棚用の榊を農家直送</title>
+<meta name="description" content="国産本榊（ほんさかき）の通販なら長崎県雲仙の榊農家「雲仙花苑」。神棚・神事用の新鮮な榊を朝摘み・農家直送で全国お届け。榊の苗木販売も。Amazon・BASEで購入できます。"/>
+<meta name="keywords" content="榊,本榊,国産榊,榊 通販,榊 販売,神棚 榊,榊 農家直送,榊 苗木,長崎 榊,雲仙花苑,雲仙本榊"/>
+<meta name="robots" content="index,follow"/>
+<link rel="canonical" href="https://unzenkaen.com/"/>
+<!-- Open Graph -->
+<meta property="og:type" content="website"/>
+<meta property="og:site_name" content="雲仙花苑"/>
+<meta property="og:title" content="国産本榊の販売・通販｜雲仙花苑（長崎県・雲仙）"/>
+<meta property="og:description" content="神棚・神事用の国産本榊を朝摘み・農家直送。長崎県雲仙の榊専門農園です。"/>
+<meta property="og:url" content="https://unzenkaen.com/"/>
+<meta property="og:image" content="https://unzenkaen.com/photo_hero.jpg"/>
+<meta property="og:locale" content="ja_JP"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "雲仙花苑",
+  "alternateName": "うんぜんかえん",
+  "description": "長崎県雲仙で国産本榊を育てる専門農園。神棚・神事用の榊を朝摘み・農家直送で全国へお届けします。",
+  "address": {
+    "@type": "PostalAddress",
+    "postalCode": "859-1505",
+    "addressRegion": "長崎県",
+    "addressLocality": "南島原市",
+    "streetAddress": "深江町扐3056-1"
+  },
+  "email": "greenworks@unzenkaen.com",
+  "url": "https://unzenkaen.com/",
+  "image": "https://unzenkaen.com/photo_hero.jpg",
+  "priceRange": "¥¥"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Product",
+  "name": "雲仙本榊 切り枝 2束セット（国産・長崎県産）",
+  "description": "神棚・仏壇・榊立てに。長崎県雲仙の農家から朝摘み直送の国産本榊です。",
+  "brand": { "@type": "Brand", "name": "雲仙花苑" },
+  "offers": {
+    "@type": "Offer",
+    "url": "https://www.amazon.co.jp/dp/B0F9TFVXCL",
+    "availability": "https://schema.org/InStock",
+    "priceCurrency": "JPY"
+  }
+}
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@200;300;400;500;600;700&family=Noto+Sans+JP:wght@300;400;500;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&display=swap" rel="stylesheet"/>
@@ -89,6 +136,66 @@ section{position:relative}
 .section-pad{padding:140px 0}
 @media (max-width:720px){ .section-pad{padding:88px 0} }
 
+/* vertical japanese accent */
+.tate{
+  position:absolute;top:50%;transform:translateY(-50%);
+  writing-mode:vertical-rl;
+  font-family:var(--serif);font-weight:400;
+  letter-spacing:.5em;font-size:13px;
+  color:var(--gold);opacity:.75;
+  pointer-events:none;user-select:none;
+}
+.tate.left{left:34px}
+.tate.right{right:34px}
+@media (max-width:1100px){ .tate{display:none} }
+
+/* big kanji watermark */
+.kanji-mark{
+  position:absolute;
+  font-family:var(--serif);font-weight:200;
+  font-size:clamp(280px,30vw,460px);
+  line-height:1;color:transparent;
+  -webkit-text-stroke:1px rgba(201,168,76,.13);
+  pointer-events:none;user-select:none;
+  z-index:0;
+}
+
+/* stats band */
+.stats-band{
+  background:var(--forest-deepest);
+  border-top:1px solid var(--rule-dark);
+  border-bottom:1px solid var(--rule-dark);
+  padding:64px 0;
+}
+.stats-band .row{
+  display:grid;grid-template-columns:repeat(3,1fr);
+  max-width:1100px;margin:0 auto;padding:0 40px;
+}
+.stat{
+  text-align:center;position:relative;padding:8px 20px;
+}
+.stat + .stat::before{
+  content:"";position:absolute;left:0;top:50%;transform:translateY(-50%);
+  width:1px;height:64px;
+  background:linear-gradient(180deg,transparent,var(--gold-soft),transparent);
+}
+.stat .v{
+  font-family:var(--serif);font-weight:300;
+  font-size:clamp(34px,4vw,52px);color:var(--gold-bright);
+  letter-spacing:.08em;line-height:1.2;
+}
+.stat .v small{font-size:.45em;letter-spacing:.2em;color:var(--gold)}
+.stat .l{
+  margin-top:10px;
+  font-family:var(--serif);font-size:13px;letter-spacing:.3em;
+  color:rgba(242,237,226,.65);
+}
+@media (max-width:720px){
+  .stats-band{padding:44px 0}
+  .stats-band .row{grid-template-columns:1fr;gap:36px;padding:0 22px}
+  .stat + .stat::before{display:none}
+}
+
 /* ornamental rule: diamond dot + gradient line both sides */
 .ornament{
   display:flex;align-items:center;justify-content:center;gap:18px;
@@ -118,6 +225,7 @@ section{position:relative}
 }
 .section-title{
   text-align:center;
+  text-wrap:balance;
   font-size:clamp(28px, 3.4vw, 44px);
   font-weight:500;
   letter-spacing:.18em;
@@ -993,6 +1101,9 @@ footer.site-foot::before{
     </div>
   </div>
 
+  <span class="tate left" aria-hidden="true">神宿る山のめぐみ</span>
+  <span class="tate right" aria-hidden="true">雲仙普賢岳の麓より</span>
+
   <div class="scroll-cue" aria-hidden="true">
     <span>スクロール</span>
     <span class="bar"></span>
@@ -1041,8 +1152,27 @@ footer.site-foot::before{
   </div>
 </section>
 
+<!-- ============== STATS BAND ============== -->
+<div class="stats-band" aria-label="雲仙花苑の数字">
+  <div class="row">
+    <div class="stat reveal">
+      <div class="v">1,300<small>年</small></div>
+      <div class="l">山岳信仰とともに</div>
+    </div>
+    <div class="stat reveal" style="--d:120ms">
+      <div class="v">3<small>日以内</small></div>
+      <div class="l">収穫から出荷まで</div>
+    </div>
+    <div class="stat reveal" style="--d:240ms">
+      <div class="v">一本<small>ずつ</small></div>
+      <div class="l">手作業の選別</div>
+    </div>
+  </div>
+</div>
+
 <!-- ============== STORY ============== -->
 <section class="story section-pad" id="story">
+  <span class="kanji-mark" style="right:-60px;top:60px" aria-hidden="true">榊</span>
   <div class="wrap">
     <div class="reveal">
       <div class="ornament"><span class="line"></span><span class="dia"></span><span class="line r"></span></div>
@@ -1090,7 +1220,7 @@ footer.site-foot::before{
       <div class="ornament"><span class="line"></span><span class="dia"></span><span class="line r"></span></div>
       <span class="eyebrow">品質のお約束</span>
       <h2 class="section-title"><span class="jp">品質へのこだわり</span></h2>
-      <p class="section-lede">土地・鮮度・品種・直送 ― 四つの約束で、神棚の緑を長く美しく保ちます。</p>
+      <p class="section-lede">土地・四季・品種・直送。四つの約束が、神棚の緑を長く美しく保ちます。</p>
     </div>
 
     <div class="q-grid q-grid-4">
@@ -1145,7 +1275,7 @@ footer.site-foot::before{
       <div class="ornament"><span class="line"></span><span class="dia"></span><span class="line r"></span></div>
       <span class="eyebrow">お取扱いの手引き</span>
       <h2 class="section-title"><span class="jp">お手入れ</span></h2>
-      <p class="section-lede">わずかな手間で、艶やかな緑はより長く保たれます。</p>
+      <p class="section-lede">わずかな手間で、艶やかな緑はもっと長持ちします。三つの所作をどうぞ。</p>
     </div>
 
     <figure class="care-hero reveal">
@@ -1190,7 +1320,7 @@ footer.site-foot::before{
       <div class="img reveal"></div>
       <div class="reveal" style="--d:150ms">
         <h3>祭祀の場に、<br/>揺るぎない品質を。</h3>
-        <p>神社仏閣・式場・料亭・花道の皆様へ。規格・本数・配送頻度を個別にお見積りいたします。定例祭・月次祭の安定供給にもご対応。一本ごとに見守る目が施された、衛生的にも美しい一対をお届けします。</p>
+        <p>神社仏閣・式場・料亭・花道の皆様へ。規格・本数・配送頻度を個別にお見積りいたします。定例祭・月次祭への安定供給にも対応。一本ずつ選別した、清らかで美しい一対をお届けします。</p>
         <div class="spec-table">
           <div class="row"><div class="k">最低数量</div><div class="v">50束〜 / 回</div></div>
           <div class="row"><div class="k">規格</div><div class="v">小・中・大・特大 / カスタム承ります</div></div>
@@ -1327,7 +1457,7 @@ footer.site-foot::before{
       <div class="ornament"><span class="line"></span><span class="dia"></span><span class="line r"></span></div>
       <span class="eyebrow">お問い合わせ</span>
       <h2 class="section-title"><span class="jp">お問い合わせ</span></h2>
-      <p class="section-lede">ご不明な点、お取り扱い、取材のご依頼など、お気軽にお問い合わせください。</p>
+      <p class="section-lede">ご不明な点、お取り扱いのご相談、取材のご依頼など、どうぞお気軽に。</p>
     </div>
 
     <form class="form reveal" id="contactForm" onsubmit="return handleSubmit(event)">
