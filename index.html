@@ -3,8 +3,14 @@
 <head>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
+<link rel="icon" type="image/png" sizes="48x48" href="favicon-48.png"/>
+<link rel="icon" type="image/png" sizes="96x96" href="favicon-96.png"/>
+<link rel="icon" type="image/png" sizes="192x192" href="icon-192.png"/>
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png"/>
+<link rel="manifest" href="site.webmanifest"/>
+<meta name="theme-color" content="#0c1e0e"/>
 <title>国産本榊の販売・通販｜雲仙花苑（長崎県・雲仙）― 神棚用の榊を農家直送</title>
-<meta name="description" content="国産本榊（ほんさかき）の通販なら長崎県雲仙の榊農家「雲仙花苑」。神棚・神事用の新鮮な榊を朝摘み・農家直送で全国お届け。榊の苗木販売も。Amazon・BASEで購入できます。"/>
+<meta name="description" content="国産本榊（ほんさかき）の通販なら長崎県雲仙の榊農家「雲仙花苑」。神棚・神事用の新鮮な榊を朝摘み・農家直送で全国お届け。榊の苗木販売も。Amazonで購入できます。"/>
 <meta name="keywords" content="榊,本榊,国産榊,榊 通販,榊 販売,神棚 榊,榊 農家直送,榊 苗木,長崎 榊,雲仙花苑,雲仙本榊"/>
 <meta name="robots" content="index,follow"/>
 <link rel="canonical" href="https://unzenkaen.com/"/>
@@ -949,22 +955,42 @@ body.menu-open .hamburger span:nth-child(3){top:20px;transform:rotate(-45deg)}
 .shop-card .go:hover{gap:16px;color:var(--gold)}
 .shop-card.disabled .go{color:rgba(242,237,226,.4);pointer-events:none;border-bottom-color:transparent}
 
-.base-widget{
-  margin-top:64px;padding:40px;
-  background:rgba(10,26,12,.45);
-  border:1px dashed var(--rule-dark);
-  text-align:center;
-}
-.base-widget .label{
-  font-family:var(--italic);font-style:italic;color:var(--gold-bright);
-  letter-spacing:.26em;font-size:12px;text-transform:uppercase;margin-bottom:16px;
-}
-.base-widget .box{
-  min-height:160px;border:1px solid var(--rule-dark);
-  display:flex;align-items:center;justify-content:center;
-  color:rgba(242,237,226,.5);font-family:var(--serif);letter-spacing:.2em;font-size:13px;
-}
-@media (max-width:900px){ .shop-grid{grid-template-columns:1fr} }
+.buy{display:grid;grid-template-columns:1.35fr 1fr;gap:28px;margin-top:72px;align-items:stretch}
+.buy-main{display:grid;grid-template-columns:1fr 1fr;background:rgba(10,26,12,.55);border:1px solid var(--gold);min-height:100%}
+.buy-photo{background:url("quality_03_leaves.jpg") center/cover no-repeat;min-height:360px;position:relative}
+.buy-photo::after{content:"";position:absolute;inset:12px;border:1px solid rgba(242,237,226,.3)}
+.buy-body{padding:44px 40px;display:flex;flex-direction:column;gap:16px}
+.buy-body .status{font-family:var(--serif);font-size:12px;letter-spacing:.28em;color:var(--gold-bright)}
+.buy-body h3{font-family:var(--serif);color:var(--paper);font-weight:500;font-size:26px;letter-spacing:.12em;line-height:1.5}
+.buy-body p{color:rgba(242,237,226,.78);font-size:14.5px;line-height:2}
+.buy-points{list-style:none;padding:0;margin:0 0 8px;display:flex;flex-direction:column;gap:8px}
+.buy-points li{position:relative;padding-left:20px;font-size:13.5px;color:rgba(242,237,226,.85);letter-spacing:.06em}
+.buy-points li::before{content:"";position:absolute;left:0;top:.75em;width:6px;height:6px;background:var(--gold);transform:rotate(45deg)}
+.buy-body .btn{align-self:flex-start;margin-top:auto}
+.buy-side{display:flex;flex-direction:column;gap:16px}
+.side-card{display:block;flex:1;padding:26px 28px;background:rgba(10,26,12,.45);border:1px solid var(--rule-dark);color:var(--paper);transition:border-color .3s, transform .3s}
+a.side-card:hover{border-color:var(--gold);transform:translateX(4px)}
+.side-card .status{font-family:var(--serif);font-size:11.5px;letter-spacing:.28em;color:var(--gold-bright);margin-bottom:8px}
+.side-card .status.prep{color:rgba(242,237,226,.5)}
+.side-card h4{font-family:var(--serif);font-weight:500;color:var(--paper);font-size:17px;letter-spacing:.1em;margin-bottom:6px}
+.side-card p{font-size:13px;line-height:1.85;color:rgba(242,237,226,.7);margin:0}
+.side-card .go{display:inline-flex;gap:8px;margin-top:12px;font-family:var(--serif);font-size:13px;letter-spacing:.16em;color:var(--gold-bright)}
+.side-card.muted{opacity:.7}
+@media (max-width:1000px){.buy{grid-template-columns:1fr}}
+@media (max-width:640px){.buy-main{grid-template-columns:1fr}.buy-photo{min-height:240px}.buy-body{padding:32px 24px}}
+
+
+/* FAQ */
+.faq{background:var(--paper)}
+.faq-list{max-width:860px;margin:56px auto 0;border-top:1px solid var(--rule)}
+.faq-list details{border-bottom:1px solid var(--rule)}
+.faq-list summary{list-style:none;cursor:pointer;padding:24px 48px 24px 4px;position:relative;font-family:var(--serif);font-weight:500;font-size:16.5px;letter-spacing:.08em;color:var(--forest-deep);line-height:1.7}
+.faq-list summary::-webkit-details-marker{display:none}
+.faq-list summary::before{content:"問";font-family:var(--serif);color:var(--gold-dark);margin-right:16px;font-size:14px}
+.faq-list summary::after{content:"";position:absolute;right:12px;top:50%;width:10px;height:10px;border-right:1px solid var(--gold-dark);border-bottom:1px solid var(--gold-dark);transform:translateY(-70%) rotate(45deg);transition:transform .3s}
+.faq-list details[open] summary::after{transform:translateY(-30%) rotate(-135deg)}
+.faq-list details p{padding:0 4px 26px 34px;font-size:14.5px;line-height:2;color:var(--ink-soft);margin:0}
+.faq-list details p a{color:var(--gold-dark);border-bottom:1px solid var(--gold-soft)}
 
 /* =========================
    CONTACT
@@ -1054,6 +1080,15 @@ footer.site-foot::before{
 /* skip link */
 .skip{position:absolute;left:-9999px}
 </style>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"本榊とヒサカキは何が違いますか?","acceptedAnswer":{"@type":"Answer","text":"本榊は葉の縁が滑らかで楕円形、肉厚で艶があります。ヒサカキは葉が小さく縁にギザギザがある別の樹種です。"}},
+{"@type":"Question","name":"どのくらい日持ちしますか?","acceptedAnswer":{"@type":"Answer","text":"到着後、神棚でおよそ2〜3週間が目安です。"}},
+{"@type":"Question","name":"注文からどのくらいで届きますか?","acceptedAnswer":{"@type":"Answer","text":"収穫当日から三日以内に出荷します。"}},
+{"@type":"Question","name":"神社や企業で、まとまった数を注文できますか?","acceptedAnswer":{"@type":"Answer","text":"はい。規格・本数・配送頻度をお伺いし、個別にお見積りいたします。"}},
+{"@type":"Question","name":"苗木も購入できますか?","acceptedAnswer":{"@type":"Answer","text":"3年生ポット苗と圃場用の大苗を販売しています。"}}
+]}
+</script>
 </head>
 <body>
 
@@ -1073,6 +1108,7 @@ footer.site-foot::before{
     <a href="nursery.html">苗の販売</a>
     <a href="#reviews">お客様の声</a>
     <a href="#shop">ご購入</a>
+    <a href="#faq">よくある質問</a>
     <a href="#contact">お問い合わせ</a>
   </nav>
   <button class="hamburger" aria-label="メニュー" id="hamburger">
@@ -1417,35 +1453,79 @@ footer.site-foot::before{
   <div class="wrap">
     <div class="reveal">
       <div class="ornament"><span class="line"></span><span class="dia"></span><span class="line r"></span></div>
-      <span class="eyebrow">オンラインストア</span>
+      <span class="eyebrow">ご購入方法</span>
       <h2 class="section-title"><span class="jp">ご購入</span></h2>
-      <p class="section-lede">単品でのご注文は BASE 公式ショップが最もスムーズです。お急ぎの方は Amazon でもお求めいただけます。</p>
+      <p class="section-lede">ご家庭の神棚用は Amazon から、まとまった数量や苗木のご注文は農園へ直接どうぞ。</p>
     </div>
 
-    <div class="shop-grid">
-      <article class="shop-card featured reveal">
-        <div class="status">おすすめ · 公式直販</div>
-        <h3>BASE 公式ショップ</h3>
-        <p>会員特典・指定日配送に対応。雲仙花苑からの直送で、最も鮮度の高い状態でお届けいたします。</p>
-        <a class="go" href="#">BASE ストアへ <span>→</span></a>
+    <div class="buy">
+      <article class="buy-main reveal">
+        <div class="buy-photo" role="img" aria-label="雲仙本榊 切り枝 2束セット"></div>
+        <div class="buy-body">
+          <div class="status">Amazon にて販売中</div>
+          <h3>雲仙本榊 切り枝<br/>2束セット</h3>
+          <p>神棚・仏壇・榊立てに。収穫から三日以内に出荷する国産本榊を、ご自宅までお届けします。お急ぎ便にも対応しています。</p>
+          <ul class="buy-points">
+            <li>国産・長崎県雲仙産</li>
+            <li>左右一対で使える2束</li>
+            <li>農家直送</li>
+          </ul>
+          <a class="btn" href="https://www.amazon.co.jp/dp/B0F9TFVXCL" target="_blank" rel="noopener">Amazon で購入する <span class="arr">↗</span></a>
+        </div>
       </article>
-      <article class="shop-card reveal" style="--d:150ms">
-        <div class="status">販売中 · Amazon掲載</div>
-        <h3>Amazon</h3>
-        <p>まずは一度お試しになりたい方に。単品購入・お急ぎ便にも対応しております。</p>
-        <a class="go" href="https://www.amazon.co.jp/dp/B0F9TFVXCL" target="_blank" rel="noopener">Amazon 商品ページへ <span>→</span></a>
-      </article>
-      <article class="shop-card disabled reveal" style="--d:300ms">
-        <div class="status prep">近日公開 · 準備中</div>
-        <h3>楽天市場</h3>
-        <p>順次展開予定です。楽天をご利用の方は今しばらくお待ちください。</p>
-        <a class="go" aria-disabled="true">開設準備中</a>
-      </article>
-    </div>
 
-    <div class="base-widget reveal">
-      <div class="label">BASE 商品ウィジェット</div>
-      <div class="box" id="baseWidget">BASE ウィジェットをこちらに埋め込みます</div>
+      <div class="buy-side">
+        <a class="side-card reveal" href="#contact" style="--d:120ms">
+          <div class="status">農園へ直接</div>
+          <h4>法人・寺社・大口のご注文</h4>
+          <p>規格・本数・配送頻度をご相談のうえ、個別にお見積りします。</p>
+          <span class="go">お見積りを依頼 <span>→</span></span>
+        </a>
+        <a class="side-card reveal" href="nursery.html" style="--d:200ms">
+          <div class="status">苗木</div>
+          <h4>本榊の苗木を育てたい方へ</h4>
+          <p>3年生ポット苗・圃場用の大苗を販売しています。</p>
+          <span class="go">苗の販売ページへ <span>→</span></span>
+        </a>
+        <div class="side-card muted reveal" style="--d:280ms">
+          <div class="status prep">準備中</div>
+          <h4>楽天市場</h4>
+          <p>出店準備を進めています。開設まで今しばらくお待ちください。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============== FAQ ============== -->
+<section class="faq section-pad" id="faq">
+  <div class="wrap">
+    <div class="reveal">
+      <div class="ornament"><span class="line"></span><span class="dia"></span><span class="line r"></span></div>
+      <span class="eyebrow">よくあるご質問</span>
+      <h2 class="section-title"><span class="jp">よくあるご質問</span></h2>
+    </div>
+    <div class="faq-list reveal">
+      <details>
+        <summary>本榊とヒサカキは何が違いますか?</summary>
+        <p>本榊(Cleyera japonica)は葉の縁が滑らかで楕円形、肉厚で艶があります。ヒサカキは葉が小さく縁にギザギザがある別の樹種です。神事には古来、本榊が用いられてきました。詳しくは<a href="quality.html#q3">品質へのこだわり</a>をご覧ください。</p>
+      </details>
+      <details>
+        <summary>どのくらい日持ちしますか?</summary>
+        <p>到着後、神棚でおよそ2〜3週間が目安です。水替えや切り戻しを行うことで、さらに長く美しさを保てます。季節や置き場所によって変わります。</p>
+      </details>
+      <details>
+        <summary>注文からどのくらいで届きますか?</summary>
+        <p>収穫当日から三日以内に出荷します。お届けまでの日数は地域によって異なります。Amazon でご購入の場合は、商品ページに表示されるお届け予定日をご確認ください。</p>
+      </details>
+      <details>
+        <summary>神社や企業で、まとまった数を注文できますか?</summary>
+        <p>はい、承ります。規格・本数・配送頻度をお伺いし、個別にお見積りいたします。<a href="#contact">お問い合わせフォーム</a>よりご相談ください。</p>
+      </details>
+      <details>
+        <summary>苗木も購入できますか?</summary>
+        <p>3年生ポット苗と圃場用の大苗を販売しています。詳しくは<a href="nursery.html">苗の販売ページ</a>をご覧ください。</p>
+      </details>
     </div>
   </div>
 </section>
@@ -1534,8 +1614,8 @@ footer.site-foot::before{
       <div class="foot-col">
         <h4>ご購入・サポート</h4>
         <ul>
-          <li><a href="#shop">BASE 公式ショップ</a></li>
-          <li><a href="#shop">Amazon</a></li>
+                    <li><a href="https://www.amazon.co.jp/dp/B0F9TFVXCL" target="_blank" rel="noopener">Amazon 商品ページ</a></li>
+          <li><a href="nursery.html">苗の販売</a></li>
           <li><a href="#wholesale">法人・寺社のお客様</a></li>
           <li><a href="#contact">お問い合わせ</a></li>
         </ul>
